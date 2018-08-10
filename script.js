@@ -12,6 +12,24 @@ document.getElementById('parking-form').addEventListener('submit', function (eve
         // addNameHint()    
     }
 
+    var entryCarYear = document.getElementById('car-year').value.trim()
+
+    if (entryCarYear === "") {
+        rejectCarYear()
+    }
+
+    var entryCarMake = document.getElementById('car-make').value.trim()
+
+    if (entryCarMake === "") {
+        rejectCarMake()
+    }
+
+    var entryCarModel = document.getElementById('car-model').value.trim()
+
+    if (entryCarModel === "") {
+        rejectCarModel()
+    }
+
     var entryStartDate = document.getElementById('start-date').value.trim()
 
     if (entryStartDate === "") {
@@ -56,12 +74,40 @@ function rejectNameField() {
     field.classList.add('input-invalid')
 }
 
+function rejectCarYear () {
+
+    var errorDiv = document.createElement('div')
+    // errorDiv.innerText = 'Required field!'
+
+    var field = document.getElementById('car-field')
+    field.parentElement.appendChild(errorDiv)
+    field.classList.add('input-invalid')
+}
+
+function rejectCarMake () {
+
+    var errorDiv = document.createElement('div')
+    // errorDiv.innerText = 'Required field!'
+
+    var field = document.getElementById('car-field')
+    field.parentElement.appendChild(errorDiv)
+    field.classList.add('input-invalid')
+}
+
+function rejectCarModel () {
+
+    var errorDiv = document.createElement('div')
+    // errorDiv.innerText = 'Required field!'
+
+    var field = document.getElementById('car-field')
+    field.classList.add('input-invalid')
+}
+
 function rejectStartDate() {
 
     var errorDiv = document.createElement('div')
 
     var field = document.getElementById('start-date-field')
-    field.parentElement.appendChild(errorDiv)
     field.classList.add('input-invalid')
 }
 
