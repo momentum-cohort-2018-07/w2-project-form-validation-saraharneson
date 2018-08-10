@@ -7,62 +7,97 @@ document.getElementById('parking-form').addEventListener('submit', function (eve
 
     var entryName = document.getElementById('name').value.trim()
 
-    if (entryName === "") {
-        rejectNameField()
-        // addNameHint()    
-    }
+        if (entryName === "") {
+            rejectNameField()
+        } else {acceptNameField()
+        }
 
     var entryCarYear = document.getElementById('car-year').value.trim()
 
-    if (entryCarYear === "") {
-        rejectCarYear()
-    }
+        if (entryCarYear === "") {
+            rejectCarYear()
+        } else {acceptCarYear()
+        }
+
 
     var entryCarMake = document.getElementById('car-make').value.trim()
 
     if (entryCarMake === "") {
         rejectCarMake()
     }
+    else acceptCarMake()
+        
 
     var entryCarModel = document.getElementById('car-model').value.trim()
 
-    if (entryCarModel === "") {
-        rejectCarModel()
-    }
+        if (entryCarModel === "") {
+            rejectCarModel()
+        }
+        else 
+            acceptCarModel()
+
+    carSection ()
+
+
+// function to make sure Car section isn't partially entered 
+
+    function carSection () {
+        if (entryCarYear === "" || entryCarMake === "" || entryCarModel === "") {
+
+        var errorDiv = document.createElement('div')
+        // errorDiv.innerText = 'Required field!'
+
+        var field = document.getElementById('car-field')
+        console.log(field)
+        field.appendChild(errorDiv)
+        field.classList.add('input-invalid')
+        }
+}
+ 
+
+// resume variable declarations
 
     var entryStartDate = document.getElementById('start-date').value.trim()
 
-    if (entryStartDate === "") {
-        rejectStartDate()
-    }
+        if (entryStartDate === "") {
+            rejectStartDate()
+        }
+        else acceptStartDate()
 
     var entryDays = document.getElementById('days').value.trim()
 
-    if (entryDays === "") {
-        rejectDaysField()
-    }
+        if (entryDays === "") {
+            rejectDaysField()
+        }
+        else rejectDaysField()
 
     var entryCard = document.getElementById('credit-card').value.trim()
 
-    if (entryCard === "") {
-        rejectCard()
-    }
+        if (entryCard === "") {
+            rejectCard()
+        }
+        else acceptCard()
 
     var entryCvv = document.getElementById('cvv').value.trim()
 
-    if (entryCvv === "") {
-        rejectCvv()
-    }
+        if (entryCvv === "") {
+            rejectCvv()
+        }
+        else acceptCvv()
 
     var entryExpiration = document.getElementById('expiration').value.trim()
 
-    if (entryExpiration === "") {
-        rejectExpiration()
-    }
+        if (entryExpiration === "") {
+            rejectExpiration()
+        }
+        else acceptExpiration()
+
+// var errorMessages 
+
 })
 
 
-////////  reject field functions
+////////  reject (red) and accept (green) functions
 
 function rejectNameField() {
 
@@ -74,14 +109,34 @@ function rejectNameField() {
     field.classList.add('input-invalid')
 }
 
+function acceptNameField() {
+
+    var errorDiv = document.createElement('div')
+    // errorDiv.innerText = 'Required field!'
+
+    var field = document.getElementById('name-field')
+    field.parentElement.appendChild(errorDiv)
+    field.classList.add('input-valid')
+}
+
 function rejectCarYear () {
 
     var errorDiv = document.createElement('div')
     // errorDiv.innerText = 'Required field!'
 
-    var field = document.getElementById('car-field')
+    var field = document.getElementById('car-year')
     field.parentElement.appendChild(errorDiv)
     field.classList.add('input-invalid')
+}
+
+function acceptCarYear() {
+
+    var errorDiv = document.createElement('div')
+    // errorDiv.innerText = 'Required field!'
+
+    var field = document.getElementById('car-year')
+    field.parentElement.appendChild(errorDiv)
+    field.classList.add('input-valid')
 }
 
 function rejectCarMake () {
@@ -89,9 +144,18 @@ function rejectCarMake () {
     var errorDiv = document.createElement('div')
     // errorDiv.innerText = 'Required field!'
 
-    var field = document.getElementById('car-field')
+    var field = document.getElementById('car-make')
     field.parentElement.appendChild(errorDiv)
     field.classList.add('input-invalid')
+}
+function acceptCarMake() {
+
+    var errorDiv = document.createElement('div')
+    // errorDiv.innerText = 'Required field!'
+
+    var field = document.getElementById('car-model')
+    field.parentElement.appendChild(errorDiv)
+    field.classList.add('input-valid')
 }
 
 function rejectCarModel () {
@@ -99,8 +163,17 @@ function rejectCarModel () {
     var errorDiv = document.createElement('div')
     // errorDiv.innerText = 'Required field!'
 
-    var field = document.getElementById('car-field')
+    var field = document.getElementById('car-model')
     field.classList.add('input-invalid')
+}
+
+function acceptCarModel () {
+
+    var errorDiv = document.createElement('div')
+    // errorDiv.innerText = 'Required field!'
+
+    var field = document.getElementById('car-model')
+    field.classList.add('input-valid')
 }
 
 function rejectStartDate() {
@@ -144,3 +217,5 @@ function rejectExpiration() {
     field.parentElement.appendChild(errorDiv)
     field.classList.add('input-invalid')
 }
+
+
