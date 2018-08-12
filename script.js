@@ -3,6 +3,7 @@ console.log('Add validation!');
 document.getElementById('parking-form').addEventListener('submit', function (event) {
     event.preventDefault()
 
+// I'm not getting how to incorporate the clear error part; I'm commenting out for now
     // clearError()
 
     var entryName = document.getElementById('name').value.trim()
@@ -80,7 +81,7 @@ document.getElementById('parking-form').addEventListener('submit', function (eve
         if (entryDays === "") {
             rejectDaysField()
         }
-        else rejectDaysField()
+        else acceptDaysField()
 
     var entryCard = document.getElementById('credit-card').value.trim()
 
@@ -102,10 +103,20 @@ document.getElementById('parking-form').addEventListener('submit', function (eve
             rejectExpiration()
         }
         else acceptExpiration()
-
-// var errorMessages 
-
 })
+
+
+// Sample from class for reference
+
+// function clearError () {
+//     var field = document.getElementById('name-field')
+//     field.classList.remove('error')
+//     // same as: field.parentElement.getElementsByClassName('.error-msg')[0]
+//     var errorMsg = field.parentElement.querySelector('.error-msg')
+//     if (errorMsg) {
+//       errorMsg.remove()
+//     }
+//   }
 
 
 ////////  reject (red) and accept (green) functions
@@ -113,7 +124,9 @@ document.getElementById('parking-form').addEventListener('submit', function (eve
 function rejectNameField() {
 
     var errorDiv = document.createElement('div')
-    // errorDiv.innerText = 'Required field!'
+
+    // errorDiv.classList.add('error-msg')
+    // errorDiv.innerText = 'Required field'
 
     var field = document.getElementById('name-field')
     field.parentElement.appendChild(errorDiv)
@@ -287,3 +300,12 @@ function acceptExpiration() {
     field.classList.add('input-valid')
 }
 
+function clearError () {
+    var field = document.getElementById('name')
+    field.classList.remove('error')
+
+    var errorMsg = field.parentElement.querySelector('.error-msg')
+    if (errorMsg) {
+      errorMsg.remove()
+    }
+  }
