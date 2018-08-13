@@ -51,10 +51,9 @@ document.getElementById('parking-form').addEventListener('submit', function (eve
         var field = document.getElementById('car-field')
         field.appendChild(errorDiv)
         field.classList.add('input-invalid')
+
         }
-        // var field = document.getElementById('car-field')
-        // field.appendChild(errorDiv)
-        // field.classList.add('input-valid')
+
 
         else if (entryCarYear !== "" && entryCarMake !== "" && entryCarModel !== "") {
 
@@ -103,8 +102,8 @@ document.getElementById('parking-form').addEventListener('submit', function (eve
             rejectExpiration()
         }
         else acceptExpiration()
-})
 
+})
 
 // Sample from class for reference
 
@@ -119,7 +118,25 @@ document.getElementById('parking-form').addEventListener('submit', function (eve
 //   }
 
 
+// Need to get error messages in ...
+
+// function addMessage
+
+// var requiredMsg
+
+// document.getElementByClass('input-field')
+
+// function showEmptyNameError () {
+//     var errorMsg = document.createElement('div')
+//     errorMsg.classList.add('error-msg')
+  
+//     var field = document.querySelectorAll('car-field')
+//     field.parentElement.appendChild(errorDiv)
+//     field.classList.add('error')
+
+
 ////////  reject (red) and accept (green) functions
+
 
 function rejectNameField() {
 
@@ -143,7 +160,8 @@ function acceptNameField() {
     field.classList.add('input-valid')
 }
 
-// start car field functions (do I need them given the carSection function above?
+// start car field functions 
+
 
 function rejectCarYear () {
 
@@ -222,9 +240,6 @@ function acceptStartDate() {
     field.parentElement.appendChild(errorDiv)
     field.classList.add('input-valid')
 }
-
-// accept start date ^^ not working for some reason; everything else is 
-
 
 function rejectDaysField() {
 
